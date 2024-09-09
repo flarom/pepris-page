@@ -1,0 +1,23 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const links = document.querySelectorAll('.sidebar-link');
+    let currentIndex = 0;
+
+    // Define o foco inicial no primeiro link
+    links[currentIndex].focus();
+
+    // Função para navegar com setas e ativar link com Enter
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            currentIndex = (currentIndex + 1) % links.length;
+            links[currentIndex].focus();
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            currentIndex = (currentIndex - 1 + links.length) % links.length;
+            links[currentIndex].focus();
+        } else if (e.key === 'Enter') {
+            e.preventDefault();
+            links[currentIndex].click();
+        }
+    });
+});

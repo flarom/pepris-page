@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Pepris</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <button id="downloadButton" class="sidebar-link">
+            Download Pepris
+        </button>
+        <button id="downloadCode" class="sidebar-link">
+            Download code only
+        </button>
+        <a href="index.html" class="sidebar-link">Go back</a>
+    </div>
+
+    <div class="content">
+        <h1>Thank you for choosing Pepris!</h1>
+        <p>
+            Your support means the world to me, 
+            and I hope Pepris brings you countless hours of fun!
+        </p>
+        <p>
+            If you have any feedback or run into any issues, feel free to reach out to me. I'm here to make 
+            sure your gameplay is smooth and exciting.
+        </p>
+        <p>
+            Once again, thank you for choosing Pepris! I hope you have an amazing time playing the game.
+        </p>
+
+        <h2>Installation instructions</h2>
+        <p>
+            For now, Pepris does not have an installer, you have to install it by yourself.
+        </p>
+        <p>
+            1. Download and unzip the Pepris folder in the desired location <br>
+            2. Lauch the Pepris.exe executable file, located in <i>bin\debug\net8.0-windows\</i> <br>
+            3. If you don't have .NET framework installed, a dialog message will appear asking you to download and install it too.
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Download the Pepris executable
+        document.getElementById("downloadButton").addEventListener("click", function () {
+            var latestReleaseUrl = "https://api.github.com/repos/flarom/pepris/releases/latest";
+            fetch(latestReleaseUrl)
+                .then(response => response.json())
+                .then(data => {
+                    var assetUrl = data.assets[0].browser_download_url;
+                    var downloadLink = document.createElement("a");
+                    downloadLink.href = assetUrl;
+                    downloadLink.download = "pepris_latest_release.zip";
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                })
+                .catch(error => {
+                    console.error("Failed to get latest release:", error);
+                    alert("Something went wrong :<\nFailed to get latest release, try again later.");
+                });
+        });
+
+        // Download the Source Code zip
+        document.getElementById("downloadCode").addEventListener("click", function () {
+            var latestReleaseUrl = "https://api.github.com/repos/flarom/pepris/releases/latest";
+            fetch(latestReleaseUrl)
+                .then(response => response.json())
+                .then(data => {
+                    var assetUrl = data.zipball_url;
+                    var downloadLink = document.createElement("a");
+                    downloadLink.href = assetUrl;
+                    downloadLink.download = "pepris_source_code.zip";
+                    document.body.appendChild(downloadLink);
+                    downloadLink.click();
+                    document.body.removeChild(downloadLink);
+                })
+                .catch(error => {
+                    console.error("Failed to get source code:", error);
+                    alert("Something went wrong :<\nFailed to get source code, try again later.");
+                });
+        });
+    </script>
+</body>
+</html>
