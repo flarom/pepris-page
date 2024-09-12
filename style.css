@@ -49,19 +49,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 @keyframes moveVideo {
     0% {
-        transform: scale(1) translate(0, 0) rotate(0deg);
+        transform: scale(1)     translate(0, 0)         rotate(0deg);
     }
     25% {
-        transform: scale(1.05) translate(-10px, -10px) rotate(2deg);
+        transform: scale(1.05)  translate(-10px, -10px) rotate(2deg);
     }
     50% {
-        transform: scale(1.1) translate(20px, 15px) rotate(-3deg);
+        transform: scale(1.1)   translate(20px, 15px)   rotate(-3deg);
     }
     75% {
-        transform: scale(1.05) translate(-15px, 10px) rotate(1deg);
+        transform: scale(1.05)  translate(-15px, 10px)  rotate(1deg);
     }
     100% {
-        transform: scale(1.1) translate(10px, -15px) rotate(-2deg);
+        transform: scale(1.1)   translate(10px, -15px)  rotate(-2deg);
     }
 }
 @keyframes blurEffect {
@@ -127,8 +127,7 @@ outline: none;
 
 .imgCredit {
     margin-left: 290px;
-    color: black;
-    opacity: 25%;
+    color: gray;
     padding: 10px;
 }
 
@@ -138,6 +137,7 @@ outline: none;
     max-width: 600px;
     height: 100vh;
     overflow: auto;
+    scrollbar-width: 3px;
 }
 
 .card {
@@ -172,7 +172,15 @@ outline: none;
     max-height: 500px;
 }
 
-img.round {
+.blurred {
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(10px);
+    padding:5px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+img.border {
     margin-bottom: 10px;
     border: 1px rgb(128, 128, 128) solid;
 }
