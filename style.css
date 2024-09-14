@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(40,40,40);
+    background-color: rgb(40, 40, 40);
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -8,7 +8,12 @@ body {
     overflow: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 300;
     margin: 0px;
 }
@@ -43,44 +48,54 @@ h1, h2, h3, h4, h5, h6 {
 .video-background video {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
     pointer-events: none;
     animation: moveVideo 30s infinite alternate ease-in-out, blurEffect 106s infinite ease-in-out;
 }
+
 @keyframes moveVideo {
     0% {
-        transform: scale(1)     translate(0, 0)         rotate(0deg);
+        transform: scale(1) translate(0, 0) rotate(0deg);
     }
+
     25% {
-        transform: scale(1.05)  translate(-10px, -10px) rotate(2deg);
+        transform: scale(1.05) translate(-10px, -10px) rotate(2deg);
     }
+
     50% {
-        transform: scale(1.1)   translate(20px, 15px)   rotate(-3deg);
+        transform: scale(1.1) translate(20px, 15px) rotate(-3deg);
     }
+
     75% {
-        transform: scale(1.05)  translate(-15px, 10px)  rotate(1deg);
+        transform: scale(1.05) translate(-15px, 10px) rotate(1deg);
     }
+
     100% {
-        transform: scale(1.1)   translate(10px, -15px)  rotate(-2deg);
+        transform: scale(1.1) translate(10px, -15px) rotate(-2deg);
     }
 }
+
 @keyframes blurEffect {
     0% {
         filter: blur(20px);
     }
+
     5% {
         filter: blur(0px);
     }
+
     95% {
-        filter: blur(0px); 
+        filter: blur(0px);
     }
+
     100% {
         filter: blur(20px);
     }
 }
+
 .sidebar {
     width: 290px;
-    background-color: rgb(32,32,32);
+    background-color: rgb(32, 32, 32);
     position: fixed;
     height: 100%;
     padding: 10px 0;
@@ -99,7 +114,7 @@ h1, h2, h3, h4, h5, h6 {
 .sidebar a,
 .sidebar button {
     color: white;
-    background-color: rgb(32,32,32);
+    background-color: rgb(32, 32, 32);
     border-width: 0;
     text-align: left;
     padding: 12px 20px;
@@ -109,20 +124,38 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     transition: padding 0.3s ease;
     outline: none;
+    margin-right: 0px;
 }
 
 .sidebar a:focus,
 .sidebar button:focus {
-background-color: white;
-color: rgb(32,32,32);
-padding-left: 40px;
-outline: none;
+    background-color: white;
+    color: rgb(32, 32, 32);
+    padding-left: 40px;
+    outline: none;
 }
-
 
 .sidebar a:hover,
 .sidebar button:hover {
+    color: white;
     background-color: rgb(128, 128, 128);
+    text-decoration: none;
+}
+
+a {
+    transition:color 1s;
+    color: #71d5a8;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+a:hover {
+    color: #3174a8;
+    text-decoration: underline;
+}
+
+p.compact{
+    margin-top: 0px;
 }
 
 .imgCredit {
@@ -137,11 +170,16 @@ outline: none;
     max-width: 600px;
     height: 100vh;
     overflow: auto;
-    scrollbar-width: 3px;
+    direction: ltr;
+    transform: scaleX(-1);
+}
+
+.content > * {
+    transform: scaleX(-1);
 }
 
 .card {
-    background-color: rgb(32,32,32);
+    background-color: rgb(32, 32, 32);
     padding: 10px;
     margin-bottom: 5px;
     border: 1px rgb(128, 128, 128) solid;
@@ -156,12 +194,13 @@ outline: none;
 }
 
 .compactCardContent {
-    padding: 10px;  
+    padding: 10px;
+    padding-top: 0px;
 }
 
 .compactCard {
-    transition: max-height 1s;
-    background-color: rgb(32,32,32);
+    transition: max-height 1s ease-in-out;
+    background-color: rgb(32, 32, 32);
     margin-bottom: 5px;
     max-height: 45px;
     overflow: hidden;
@@ -170,13 +209,13 @@ outline: none;
 
 .compactCard:hover {
     max-height: 500px;
+    overflow: auto;
 }
 
 .blurred {
     background: rgba(0, 0, 0, 0);
     backdrop-filter: blur(10px);
-    padding:5px;
-    border-radius: 10px;
+    padding: 5px;
     margin-bottom: 5px;
 }
 
@@ -191,6 +230,7 @@ img.border {
         height: auto;
         position: relative;
     }
+
     .content {
         margin-left: 0;
     }

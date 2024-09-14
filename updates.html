@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pepris Updates</title>
+    <title>Pepris - Updates</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="/Resources/Pepris.ico">
 </head>
 <body>
     <div class="image-background">
@@ -37,26 +38,36 @@
                 .then(data => {
                     data.forEach(release => {
                         var changelog = document.createElement("div");
-                        changelog.className = "card"
+                        changelog.className = "compactCard"
                         changelog.classList.add("changelog");
+
+                        var titleContainer = document.createElement("div");
+                        titleContainer.className = "compactCardTitle";
+
+                        var contentContainer = document.createElement("div");
+                        contentContainer.className = "compactCardContent";
 
                         var title = document.createElement("h2");
                         var titleLink = document.createElement("a");
+
                         titleLink.href = release.html_url;
                         titleLink.textContent = release.name || "Release " + release.tag_name;
                         titleLink.target = "_blank";
                         title.appendChild(titleLink);
 
                         var date = document.createElement("p");
+                        date.className = "compact";
                         var releaseDate = new Date(release.published_at);
                         date.textContent = "Released on: " + releaseDate.toDateString();
 
                         var body = document.createElement("div");
                         body.innerHTML = marked.parse(release.body || "No changelog available.");
 
-                        changelog.appendChild(title);
-                        changelog.appendChild(date);
-                        changelog.appendChild(body);
+                        titleContainer.appendChild(title)
+                        changelog.appendChild(titleContainer);
+                        contentContainer.appendChild(date);
+                        contentContainer.appendChild(body);
+                        changelog.appendChild(contentContainer);
 
                         changelogContainer.appendChild(changelog);
                     });

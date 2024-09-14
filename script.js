@@ -2,10 +2,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const links = document.querySelectorAll('.sidebar-link');
     let currentIndex = 0;
 
-    // Define o foco inicial no primeiro link
     links[currentIndex].focus();
 
-    // Função para navegar com setas e ativar link com Enter
     document.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowDown') {
             e.preventDefault();
@@ -21,3 +19,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
