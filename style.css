@@ -223,7 +223,7 @@ img.tiny {
 @media screen and (max-width: 500px) {
     .sidebar {
         width: 100%;
-        height: auto;
+        height: 60px;
         position: fixed;
         bottom: 0;
         top: auto;
@@ -232,7 +232,6 @@ img.tiny {
         padding: 0;
         overflow-x: auto;
         overflow-y: hidden;
-        white-space: nowrap;
     }
 
     .sidebar a,
