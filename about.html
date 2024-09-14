@@ -7,6 +7,7 @@
     <title>Pepris - About</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="/Resources/Pepris.ico">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 
 <body>
@@ -30,8 +31,8 @@
             </div>
             <div class="compactCardContent">
                 <img src="https://cdn.bsky.app/img/avatar/plain/did:plc:ikwv57ovmc7a62y54vqav3bg/bafkreid5ruvg7d6wj7no4pbjjhuhoziqzxx77dwkboutzkwjosei2loddm@jpeg"
-                    width="120px" class="border" align="right">
-                <p class="compact" >Created by flarom! <br>
+                     class="tiny" align="right">
+                <p class="compact">Created by flarom! <br>
                     <a target="_blank" href="https://flarom.bsky.social">BlueSky</a>
                     <a target="_blank" href="https://github.com/flarom">Github</a>
                     <a target="_blank" href="https://www.pixiv.net/en/users/67757364">Pixiv</a>
@@ -44,8 +45,34 @@
                 <h2>Gallery</h2>
             </div>
             <div class="compactCardContent">
-                official game art here <br>
-                i didn't made any yet.
+                <div style="display: flex;">
+                    <a href="Resources/noimg.png">
+                        <img src="Resources/noimg.png" alt="No image image" class="tiny">
+                    </a>
+                    <div>
+                        <h3>The no image image</h3>
+                        A background image used when there is nothing to use on the page bg.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="compactCard">
+            <div class="compactCardTitle">
+                <h2>How to build</h2>
+            </div>
+            <div class="compactCardContent">
+                <div class="code-container">
+                    <p>To build Pepris for Windows (7 or later), use the latest version of Visual Studio and the provided Pepris.sln solution file. Simply open the solution file on Visual Studio and press F5 to compile it.</p>
+                    <p>Please note that the game may not run correctly due to the missing settings.xml file. You can simply fix it by opening the ingame settings menu and adjusting the board size and opacity. Or by creating the settings.xml file manually, in the directory where pepris.exe is located, and pasting the following:</p>
+                    <textarea id="codeblock" readonly="true" spellcheck="false" rows="6">
+<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+    <pointSize>20</pointSize>
+    <boardOpacity>1</boardOpacity>
+</Settings>
+                    </textarea>
+                </div>
             </div>
         </div>
 
@@ -81,6 +108,7 @@
     </div>
 
     <script src="script.js"></script>
+    
 </body>
 
 </html>

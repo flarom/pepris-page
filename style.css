@@ -158,12 +158,6 @@ p.compact{
     margin-top: 0px;
 }
 
-.imgCredit {
-    margin-left: 290px;
-    color: gray;
-    padding: 10px;
-}
-
 .content {
     margin-left: 290px;
     padding: 10px;
@@ -214,24 +208,94 @@ p.compact{
 
 .blurred {
     background: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
     padding: 5px;
     margin-bottom: 5px;
+    text-shadow: rgba(40, 40, 40, 0.75) 0px 0px 10px;
 }
 
-img.border {
+img.tiny {
     margin-bottom: 10px;
     border: 1px rgb(128, 128, 128) solid;
+    width: 120px;
 }
 
 @media screen and (max-width: 500px) {
     .sidebar {
         width: 100%;
         height: auto;
-        position: relative;
+        position: fixed;
+        bottom: 0;
+        top: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+
+    .sidebar a,
+    .sidebar button {
+        padding: 10px 15px;
+        font-size: 14pt;
+        flex: 1;
+        text-align: center;
+        user-select: none;
+        -webkit-touch-callout: none;
+        width: 20px;
+    }
+
+    .sidebar a:focus,
+    .sidebar button:focus{
+        background-color: rgb(32, 32, 32);
+        color: white;
+        padding-left: 15px;
+        outline: none;
+    }
+
+    .sidebar a:hover,
+    .sidebar button:hover {
+        background-color: rgb(128, 128, 128);
+    }
+
+    .sidebar img {
+        display: none;
     }
 
     .content {
         margin-left: 0;
+        height: 90vh;
     }
+
+    .compactCard:hover {
+        max-height: 100%;
+    }
+}
+
+/* CODE BLOCKS */
+
+#codeblock {
+    background-color: rgb(32, 32, 32);
+    color: #71d5a8;
+    font-family: monospace;
+    font-size: 12pt;
+    white-space: pre;
+    border: 1px rgb(128, 128, 128) solid;
+    max-width: 100%;
+    width: 100%;
+    outline: none;
+}
+
+.copy-btn {
+    padding: 5px 10px;
+    background-color: rgb(32, 32, 32);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.copy-btn:hover {
+    background-color: rgb(56, 56, 56);
 }
